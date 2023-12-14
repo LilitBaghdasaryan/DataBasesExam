@@ -84,7 +84,6 @@ def stuff_participance(rating_restriction):   # the num of players must be great
 
 stuff_chess_players(7000)
 stuff_championships(3000)
-stuff_participance(60000)
-        
+stuff_participance(60000) 
 
 

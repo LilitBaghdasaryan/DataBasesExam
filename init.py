@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, exc, text
 
-DATABASE_NAME = 'Chess_championship'
+DATABASE_NAME = 'chess_championship'
 USERNAME = 'postgres'
 PASSWORD = '12312345'
 HOST = 'localhost'
@@ -23,6 +23,6 @@ def create_database():
     except exc.SQLAlchemyError as err:
         print(f"Error: {err}")
 
-# Avoid unintended execution
 if __name__ == "__main__":
     create_database()
+

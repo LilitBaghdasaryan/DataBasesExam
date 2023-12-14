@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from models import Base, ChessPlayer, Championship
 from schemes import ChessPlayerCreate, ChampionshipCreate, ParticipanceCreate
-from init import DATABASE_URI as db_url
+from create_db import DATABASE_URI as db_url
 from helper_funcs import random_date
 import requests
 import json

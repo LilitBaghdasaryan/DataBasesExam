@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from models import Championship, ChessPlayer, Participance
 from schemes import ChessPlayerCreate, ChessPlayerResponse, ChampionshipCreate, ChampionshipResponse, ParticipanceCreate, ParticipanceResponse
-from init import DATABASE_URI as db_url
+from create_db import DATABASE_URI as db_url
 import uvicorn
 from typing import List
 

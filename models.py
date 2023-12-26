@@ -27,6 +27,10 @@ class ChessPlayer(Base):
     rating = Column(Integer)
     title = Column(String)
 
+    # migrations
+    age = Column(Integer)
+    gender = Column(String)
+
     # 1->N
     participance = relationship("Participance", back_populates="chess_player")
 

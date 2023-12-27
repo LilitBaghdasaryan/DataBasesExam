@@ -42,8 +42,13 @@ def read_player(player_id: int, db: Session = Depends(get_db)):
     return db_player
 
 @app.get("/chess_players/", response_model=List[ChessPlayerResponse])
-def get_all_players(db: Session = Depends(get_db)):
-    chess_players = db.query(ChessPlayer).all()
+def get_all_players(page: int = 1, page_size: int = 20, db: Session = Depends(get_db)):
+    
+    offset = (page - 1) * page_size
+
+    # Can navigate through pages adding ?page={the page number} to the url
+    chess_players = db.query(ChessPlayer).offset(offset).limit(page_size).all()
+
     return chess_players
 
 @app.put("/chess_players/{player_id}", response_model=ChessPlayerResponse)
@@ -88,8 +93,12 @@ def read_championship(championship_id: int, db: Session = Depends(get_db)):
     return db_championship
 
 @app.get("/championships/", response_model=List[ChampionshipResponse])
-def get_all_championships(db: Session = Depends(get_db)):
-    championships = db.query(Championship).all()
+def get_all_championships(page: int = 1, page_size: int = 20, db: Session = Depends(get_db)):
+
+    offset = (page - 1) * page_size
+
+    # Can navigate through pages adding ?page={the page number} to the url
+    championships = db.query(Championship).offset(offset).limit(page_size).all()
     return championships
 
 @app.put("/championships/{championship_id}", response_model=ChampionshipResponse)
@@ -134,8 +143,12 @@ def read_participance(participance_id: int, db: Session = Depends(get_db)):
     return db_participance
 
 @app.get("/participances/", response_model=List[ParticipanceResponse])
-def get_all_participances(db: Session = Depends(get_db)):
-    participances = db.query(Participance).all()
+def get_all_participances(page: int = 1, page_size: int = 20, db: Session = Depends(get_db)):
+
+    offset = (page - 1) * page_size
+
+    # Can navigate through pages adding ?page={the page number} to the url
+    participances = db.query(Participance).offset(offset).limit(page_size).all()
     return participances
 
 @app.put("/participances/{participance_id}", response_model=ParticipanceResponse)
